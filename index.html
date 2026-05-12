@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal academic website" />
+  <title>Your Name | Academic Website</title>
+
+  <style>
+    :root {
+      --primary: #0f3d5e;
+      --secondary: #1f6f8b;
+      --accent: #e6f2f8;
+      --text: #222;
+      --muted: #666;
+      --background: #ffffff;
+      --card: #f8fbfd;
+      --border: #d9e4ea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .site-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--accent), #ffffff);
+      padding: 70px 8%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      background: #ddd;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .hero h2 {
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+      color: var(--muted);
+      font-weight: normal;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      max-width: 760px;
+      margin-bottom: 20px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      border: 1px solid var(--primary);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 42px 8%;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    section h2 {
+      color: var(--primary);
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .publication {
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .publication:last-child {
+      border-bottom: none;
+    }
+
+    .pub-title {
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contact-list li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 8%;
+      background: var(--primary);
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-photo {
+        margin: auto;
+      }
+
+      .button-row {
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="site-title">Your Name</div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-grid">
+      <!-- Replace profile.jpg with your own photo file name -->
+      <img src="profile.jpg" alt="Profile photo of Your Name" class="profile-photo" />
+      <div>
+        <h1>Dr./Mr./Ms. Your Name</h1>
+        <h2>Lecturer / Assistant Professor, Department of Electrical and Electronic Engineering</h2>
+        <p>
+          I am an academician and researcher in Electrical and Electronic Engineering. My academic interests include power systems, switchgear and protection, renewable energy, smart grid technologies, and engineering education.
+        </p>
+        <div class="button-row">
+          <a class="button" href="cv.pdf" target="_blank">Download CV</a>
+          <a class="button secondary" href="#publications">View Publications</a>
+          <a class="button secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Write a short academic biography here. Include your current position, institution, educational background, teaching experience, research interests, and professional goals. Keep this section formal and concise.
+      </p>
+      <p>
+        Example: I am currently serving as a faculty member in the Department of Electrical and Electronic Engineering. My work focuses on power system analysis, protection systems, renewable energy integration, and simulation-based engineering education.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research Interests</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Power Systems</h3>
+          <p>Power system analysis, stability, operation, and planning.</p>
+        </div>
+        <div class="card">
+          <h3>Switchgear and Protection</h3>
+          <p>Protective relays, circuit breakers, fault analysis, and protection coordination.</p>
+        </div>
+        <div class="card">
+          <h3>Renewable Energy</h3>
+          <p>Solar PV systems, grid integration, and distributed generation.</p>
+        </div>
+        <div class="card">
+          <h3>Smart Grid</h3>
+          <p>Modern grid monitoring, automation, reliability, and energy management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <div class="publication">
+        <p class="pub-title">Title of Journal Paper or Conference Paper</p>
+        <p>Author Name, Co-author Name, and Co-author Name</p>
+        <p class="muted">Journal/Conference Name, Year. <a href="#">DOI/Link</a></p>
+      </div>
+      <div class="publication">
+        <p class="pub-title">Another Research Publication Title</p>
+        <p>Author Name and Co-author Name</p>
+        <p class="muted">Journal/Conference Name, Year. <a href="#">DOI/Link</a></p>
+      </div>
+      <p>
+        Add your full publication list here or link your Google Scholar, ORCID, ResearchGate, or institutional profile.
+      </p>
+    </section>
+
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <p>I teach undergraduate courses and sessional/laboratory courses in Electrical and Electronic Engineering.</p>
+      <ul>
+        <li>EEE 4246: Switchgear and Protection Sessional</li>
+        <li>Power System Analysis</li>
+        <li>Electrical Machines</li>
+        <li>Signals and Systems</li>
+        <li>Numerical Methods</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects and Supervision</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Research Projects</h3>
+          <p>Add your funded or self-initiated research projects here.</p>
+        </div>
+        <div class="card">
+          <h3>Student Supervision</h3>
+          <p>Add undergraduate thesis, capstone, or project supervision topics here.</p>
+        </div>
+        <div class="card">
+          <h3>Academic Resources</h3>
+          <p>Add course profiles, lab manuals, lecture notes, and student learning materials here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+        <li><strong>Office:</strong> Department of Electrical and Electronic Engineering, Your University</li>
+        <li><strong>Google Scholar:</strong> <a href="#">Add your Google Scholar link</a></li>
+        <li><strong>ORCID:</strong> <a href="#">Add your ORCID link</a></li>
+        <li><strong>LinkedIn:</strong> <a href="#">Add your LinkedIn link</a></li>
+        <li><strong>ResearchGate:</strong> <a href="#">Add your ResearchGate link</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
